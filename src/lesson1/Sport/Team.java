@@ -1,34 +1,38 @@
 package lesson1.Sport;
 
 import lesson1.particiant.Animal;
-import lesson1.particiant.Cat;
-import lesson1.particiant.Dog;
-import lesson1.particiant.Human;
 
 public class Team {
 
     private String name;
-    private Animal[] animals;
+    private boolean didIt = true;
+    private Sportsman[] sportsmen;
 
 
-    public Team (String name, Animal[] animals){
+    public Team (String name,Sportsman[] sportsmen){
         this.name = name;
-        this.animals = animals;
+        this.sportsmen = sportsmen;
     }
 
-    public Animal[] getAnimals(){
-        return animals;
+    public Sportsman[] sportsmen(){
+        return sportsmen;
     }
-    /*public void getTeam(){
-        System.out.println(name);
-        System.out.println(particiant.length);
-        //for (int i = 0; i < particiant.length ; i++) {
-        //    System.out.println(particiant[i].getName() + " " + particiant[i].getAge());
-        //}
 
-   }
+    public String getName() {
+        return name;
+    }
 
-    public Participant[] getParticiant(Team team){
-        return team.particiant;
-    }*/
+    public void setDidIt(boolean didIt) {
+        this.didIt = didIt;
+    }
+
+    public void showResult(){
+        String text = "";
+        if (this.didIt){
+          text = " прошла дистанцию";
+        }else {
+          text = " прошла дистанцию";
+        }
+        System.out.println("Команда " + this.name + text);
+    }
 }

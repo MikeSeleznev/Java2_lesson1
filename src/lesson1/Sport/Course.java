@@ -3,30 +3,33 @@ package lesson1.Sport;
 import lesson1.particiant.Animal;
 
 public class Course {
-    private Obstacles obstacles;
-    private double swimDistance = 100.1;
-    private double jumpDistance = 2.5;
+    private double swimDistance;
+    private double jumpDistance;
+    private double runDistance;
 
-    public Course(){
-        Obstacles[] obstacles = new Obstacles[3];
-        obstacles[0] = new Obstacles("1.1");//swim
-        obstacles[1] = new Obstacles("Jump");
-        //obstacles[0] = new Obstacles("Run");
+    public Course(double swimDistance, double jumpDistance, double runDistance){
+        this.jumpDistance = jumpDistance;
+        this.runDistance = runDistance;
+        this.swimDistance = swimDistance;
     }
 
     public void doIt(Team team){
 
-        boolean catBoolean = true;
-        Animal[] animals = team.getAnimals();
-
-        for (Animal animal: animals) {
-            String a = "f";
+        Sportsman[] sportsman = team.sportsmen();
+        for (Sportsman player: sportsman) {
+            Boolean jumpB = player.jump(2.5);
+            if (jumpB == false){
+                team.setDidIt(false);
+                break;}
+            Boolean runB = player.run(100.1);
+            if (runB == false){
+                team.setDidIt(false);
+                break;}
+            Boolean swimB = player.swim(50.1);
+            if (swimB == false){
+                team.setDidIt(false);
+                break;}
         }
-               /*Participant[] participant = team.getParticiant(team);
 
-        for (int i = 0;0<participant.length ; i++) {
-           Participant participant1 =  participant[i];
-            participant1.
-        }*/
     }
 }
